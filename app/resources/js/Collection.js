@@ -1,7 +1,7 @@
 /* eslint-env browser */
 
-import {loadGamePage} from "./DBController.js";
-import {refreshGameListeners} from "./Gamepage.js";
+import { loadGamePage } from "./DBController.js";
+import { refreshGameListeners } from "./Gamepage.js";
 
 function clearCollection() {
   let collection = document.querySelector("#gamebox");
@@ -10,6 +10,8 @@ function clearCollection() {
   }
 }
 
+//This function is called upon in a loop
+//it creates a single "game object" in the collection 
 function displayCollection(username, gameName, publisher, genre, rating) {
   let div, header, pOne, pTwo, headerTwo, button;
   div = document.createElement("div");
@@ -30,8 +32,8 @@ function displayCollection(username, gameName, publisher, genre, rating) {
 
   button = document.createElement("button");
   button.innerText = "To Game Page";
-  
-  button.addEventListener("click", function toGamePage(){
+
+  button.addEventListener("click", function toGamePage() {
     let userNameforGame = username;
 
     refreshGameListeners(gameName);
@@ -52,7 +54,7 @@ function displayCollection(username, gameName, publisher, genre, rating) {
 }
 
 function usersCollection(username) {
-    document.querySelector("#usernameCollection").innerHTML = username +
+  document.querySelector("#usernameCollection").innerHTML = username +
     "'s Collection";
 }
 

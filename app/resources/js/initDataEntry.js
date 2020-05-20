@@ -1,14 +1,11 @@
+/* eslint-disable no-magic-numbers */
 /* eslint-env browser */
-import { newGame, createNewAccount, addFriend, setRating, getGameNames } from "./DBController.js";
-let games,gameNamesArray, maxNumOfFriends = 15;
+import { newGame, createNewAccount, addFriend, setRating } from "./DBController.js";
+let games, maxNumOfFriends = 15;
 
 //This part was used only once to upload all the games into our Firbase database
 //the method is imported in index.js but will not be called since everything is already online.
-function gameNameList(array)
-{
-      gameNamesArray = array;
-}
-
+//We could have removed it from the project as it is no longer necessary but we decided to keep it so that it is easier to comprehend our workflow
 function initDataSet() {
    games = [
    ["A-10 Cuba!","Parsoft Interactive","Activision","Flight simulator","Microsoft Windows, Mac","November 30, 1996"],
@@ -941,7 +938,7 @@ function initDataSet() {
 
    for (let x = 0; x < games.length; x++)
    {
-         newGame(games[x][0], "", games[x][3], games[x][5], games[x][1], games[x][2], games[x][4], x);
+        newGame(games[x][0], "", games[x][3], games[x][5], games[x][1], games[x][2], games[x][4], x);
    }
    
    }
@@ -951,8 +948,7 @@ function initDataSet() {
 
    function dummyData()
    {
-      getGameNames();
-      gameNameList();
+      initDataSet();
       //Source: "https://jimpix.co.uk/words/random-username-list.asp"
       let randomNum,
       dummyname =[   
@@ -1047,36 +1043,37 @@ function initDataSet() {
             "committeeplot",
       ];
 
-      createNewAccount("Niklas", "Test123");
-      createNewAccount("Alex", "1234");
+      createNewAccount("Niklas", "Test123", 0);
+      createNewAccount("Alex", "1234", 1);
 
-      for ( let i = 0; i < dummyname.length; i++)
+       for ( let i = 0; i < dummyname.length; i++)
       {
             let temp = dummyname[i].split("");
             temp = temp.reverse();
             temp = temp.join("");
-            createNewAccount(dummyname[i], temp);
-      }    
+            createNewAccount(dummyname[i], temp, (i+2));
+      }   
       //Two Loops necessary because users must exits in order to add them as friend
-      for (let i = 0; i < dummyname.length; i++ )
+     for (let i = 0; i < dummyname.length; i++ )
       {
-            let temp = Math.floor(Math.random() * maxNumOfFriends) + 1,
+             let temp = Math.floor(Math.random() * maxNumOfFriends) + 1,
                   numGames = Math.floor(Math.random()*20) + 1;
-            for (let k = 0; k < temp; k++)
+          for (let k = 0; k < temp; k++)
             {     
-                  let random = Math.floor(Math.random()*dummyname.length) + 1;
-                  addFriend(dummyname[random], dummyname[i]);
+                  let random = Math.floor(Math.random()*dummyname.length);
+                  setTimeout(addFriend(dummyname[random], dummyname[i]), 2000);
             }
 
             //setRating(ratingGame,ratingUser,ratingRating) 
-            for (let j = 0; j < numGames; j++)
+           for (let j = 0; j < numGames; j++)
             {
-                  let rating = Math.floor(Math.random()*10) + 1, gameID = Math.floor(Math.random()*gameNamesArray.length) + 1;
-                  setRating(gameNamesArray[gameID], dummyname[i], rating);
+                  let rating = Math.floor(Math.random()*10) + 1, gameID = Math.floor(Math.random()*games.length) + 1;
+                  setTimeout(setRating(games[gameID][0], dummyname[i], rating), 500);
             }
       }
 
       //Our test users get friends
+     
       randomNum = Math.floor(Math.random() * maxNumOfFriends) + 1;
       for (let k = 0; k < randomNum; k++)
       {
@@ -1087,4 +1084,4 @@ function initDataSet() {
 
    }
 
-export {initDataSet, dummyData, gameNameList};
+export {initDataSet, dummyData};

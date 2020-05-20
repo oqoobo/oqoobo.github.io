@@ -7,56 +7,7 @@ let ten = 10,
   limit = 100;
 
 function createTimeline(array) {
-  let timeline = [],
-    picture = "",
-    ratingRef = "",
-    text = "",
-    rating = "",
-    date;
-
-  for (let i = 0; i < array.length; i++) {
-    let temp = array[i],
-      value;
-    // eslint-disable-next-line guard-for-in
-    for (let key in temp) {
-
-      value = temp[key];
-
-      //The spaceholders get values if they exist
-      if (value.ratingRef !== null) { ratingRef = value.ratingRef; }
-      if (value.text !== null) { text = value.text; }
-      if (value.picture !== null) { picture = value.picture; }
-      if (value.rating !== null) { rating = value.rating; }
-
-      //splitting date and time to fullfill correct format
-      date = new Date(value.date);
-      let month = date.getMonth(),
-        day = date.getDate(),
-        time = value.time.split(":"),
-        entry;
-
-      //necessary 0s are added through if clauses
-      if (time[0] < ten) { time[0] = "0" + time[0]; }
-      if (time[1] < ten) { time[1] = "0" + time[1]; }
-      if (time[2] < ten) { time[2] = "0" + time[2]; }
-      if (date.getDate() < ten) { day = "0" + date.getDate(); }
-      if (date.getMonth() < ten) { month = "0" + date.getMonth(); }
-
-      //if no exact time stamp is present, time will be 00:00:00 
-      if (value.time !== null) {
-        date = new Date(date.getFullYear() + "-" + month + "-" + day
-          .toString() + "T" +
-          time[0] + ":" + time[1] + ":" + time[2]);
-      } else {
-        date = new Date(date.getFullYear() + "-" + month + "-" + day
-          .toString() + "T00:00:00");
-      }
-
-      //all single values combined in array as one activity and then entered in timeline
-      entry = [date, value.game, value.name, text, rating, ratingRef, picture];
-      timeline.push(entry);
-    }
-  }
+  let timeline = sortDates(array);
   //timeline will be sorted and html elements created
   timeline = sortTimeline(timeline);
   createVisibleItems(timeline);
@@ -80,7 +31,59 @@ function sortTimeline(array) {
   }
   return array;
 }
+//This function is used to create uniformed dates
+function sortDates(array) {
+  let timeline = [],
+    picture = "",
+    ratingRef = "",
+    text = "",
+    rating = "",
+    date;
 
+  for (let i = 0; i < array.length; i++) {
+    let temp = array[i],
+      value;
+    // eslint-disable-next-line guard-for-in
+    for (let key in temp) {
+
+      value = temp[key];
+
+      //The spaceholders get values if they exist
+      if (value.ratingRef !== null) { ratingRef = value.ratingRef; }
+      if (value.text !== null) { text = value.text; }
+      if (value.picture !== null) { picture = value.picture; }
+      if (value.rating !== null) { rating = value.rating; }
+
+      //splitting date and time to fullfill correct format
+      date = new Date(value.date);
+      let month = date.getMonth() + 1,
+        day = date.getDate(),
+        time = value.time.split(":"),
+        entry;
+
+      //necessary 0s are added through if clauses
+      if (time[0] < ten) { time[0] = "0" + time[0]; }
+      if (time[1] < ten) { time[1] = "0" + time[1]; }
+      if (time[2] < ten) { time[2] = "0" + time[2]; }
+      if (date.getDate() < ten) { day = "0" + date.getDate(); }
+      if (date.getMonth() < ten) { month = "0" + (date.getMonth() + 1); }
+      //if no exact time stamp is present, time will be 00:00:00 
+      if (value.time !== null) {
+        date = new Date(date.getFullYear() + "-" + month + "-" + day
+          .toString() + "T" +
+          time[0] + ":" + time[1] + ":" + time[2]);
+      } else {
+        date = new Date(date.getFullYear() + "-" + month + "-" + day
+          .toString() + "T00:00:00");
+      }
+
+      //all single values combined in array as one activity and then entered in timeline
+      entry = [date, value.game, value.name, text, rating, ratingRef, picture];
+      timeline.push(entry);
+    }
+  }
+  return timeline;
+}
 //function to compare dates
 function compareDates(dateA, dateB) {
   if (dateB - dateA > 0) {
@@ -137,4 +140,4 @@ function createVisibleItems(activityArray) {
   }
 }
 
-export { createTimeline };
+export { createTimeline, sortDates, sortTimeline, compareDates };
