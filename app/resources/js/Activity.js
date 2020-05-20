@@ -105,6 +105,7 @@ function createVisibleItems(activityArray) {
       img = document.createElement("img");
 
     //Filling elements with content
+    if(activityArray[i]!== undefined){
     date.innerHTML = activityArray[i][0];
     game.innerHTML = activityArray[i][1];
     user.innerHTML = activityArray[i][2];
@@ -112,6 +113,7 @@ function createVisibleItems(activityArray) {
     rating.innerHTML = user.innerHTML + " has rated the game with: " +
       activityArray[i][4] + "/10";
     img.innerHTML = activityArray[i][6];
+    }
     button.innerHTML = "To Game";
 
     //Creating Listeners
