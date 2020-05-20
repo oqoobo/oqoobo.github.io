@@ -11,6 +11,7 @@ let username = null,
   gameDescriptionButton = document.querySelector("#game_description_button"),
   reviewButton = document.querySelector("#game_rating_button"),
 
+  //
   // These Elements/Buttons are Used for the Review-Page
   revSubmit = document.querySelector("#review_submit"),
   revSubmitRating = document.querySelector("#review_submitR"),

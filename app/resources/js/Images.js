@@ -12,7 +12,7 @@ class imageUpload{
     getSource(){
         return this.imgSourceURL;
     }
-
+    //
     updateSource(src){
         this.imgSourceURL = src;
     }
