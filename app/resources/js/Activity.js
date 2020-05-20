@@ -7,10 +7,10 @@ let ten = 10,
   limit = 100;
 
 function createTimeline(array) {
-  let timeline = sortDates(array);
+  let timeline = sortDates(array),
   //timeline will be sorted and html elements created
-  timeline = sortTimeline(timeline);
-  createVisibleItems(timeline);
+  sortedTimeline = sortTimeline(timeline);
+  createVisibleItems(sortedTimeline);
 }
 
 //function to sort timeline
