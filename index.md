@@ -23,6 +23,6 @@ Welcome To Meine Spielsammlung
 
 
 
-[Link](https://github.com/oqoobo/oqoobo.github.io/master/index.html)
+[Link](https://github.com/oqoobo/oqoobo.github.io/index.html)
 
 
