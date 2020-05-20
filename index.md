@@ -21,9 +21,8 @@ Welcome To Meine Spielsammlung
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](https://github.com/oqoobo/oqoobo.github.io/master)
+
 
 [Link](https://github.com/oqoobo/oqoobo.github.io/master/index.html)
 
-[Link](https://github.com/oqoobo/oqoobo.github.io/edit/master)
-m/features/mastering-markdown/).
+
