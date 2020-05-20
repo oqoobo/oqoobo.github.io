@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MME</title>
+    <link rel="stylesheet" href="resources/css/style.css">
+</head>
+
+<body>
+    <div id="main_body" style="display: none;">
+        <h1>My Game Collection</h1>
+        <div class=box>
+            <button type="button" id="overlay_button_home"> Home </button>
+            <button type="button" id="overlay_collection"> Collection </button>
+            <button type="button" id="overlay_activity"> Friend Activity </button>
+            <button type="button" id="overlay_addgame"> Add Game </button>
+            <button type="button" id="overlay_addfriend"> Add Friend </button>
+            <button type="button" id="overlay_removefriend"> Remove Friend </button>
+            <button type="button" id="overlay_sign_out"> Sign Out </button>
+        </div>
+
+        <div style="overflow-x: hidden; min-height: 100%;">
+
+            <div class="container" style="float:left; width: 22%; overflow: hidden;">
+                <h1>Friends List</h1>
+                <div class="box" id="friendlist" style="overflow: auto">
+                </div>
+            </div>
+
+            <div class="container" style="border: none; float: right; width: 78%; overflow: hidden; height: 85vh; display: none;" id="home_content_frame">
+                <h1> Home</h1>
+                <div style="overflow-y: scroll; overflow-block: block;">
+                    <div style="border:none; height:inherit; widows: inherit;">Recent Activity</div>
+                    <br>
+                    <div style="border:none; height:inherit; widows: inherit;"> Recommended</div>
+                    <br>
+                    <div style="border:none; height:inherit; widows: inherit;"> lastReview</div>
+                </div>
+            </div>
+
+            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow: hidden; height: 85vh;" id="activity_content_frame">
+                <h1>Activity</h1>
+                <div class="box" id="activity_display" style="overflow-y: scroll; height: 90%;"></div>
+            </div>
+
+            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow: hidden; height: 100%;" id="game_content_frame">
+                <h1 id="game_header">Game name did not load</h1>
+                <div id="gamedisplay" style="overflow-y: scroll;min-height: 100%; height: 100%; max-height: 800px;">
+                    <div style="float: left; clear: left;" id="game_info">
+                        <h2 id="game_name">Game Name</h2>
+                        <p style="float: left; clear: left; margin-left: 10px;">Publisher</p>
+                        <p style="float: right; clear: right; margin-right: 10px;">Developer</p>
+                        <p style="clear: both;">Genre, Genre</p>
+                        <p id="game_description">No Description has been added yet!</p>
+                        <p>Release Date: xx.xx.xxxx</p>
+                        <p>Operating System: ?</p>
+                        <h3 style="float: left; clear: left; margin-left: 10px;"> Overall Rating: x/10</h3>
+                        <h3 style="float: right; clear: right; margin-right: 10px;">My Rating: x/10</h3>
+                        <button id="game_rating_button">Add Review</button>
+                        <button id="game_description_button">Add Description</button>
+                        <p style="display: none;" id="game_description_alert">Description has been added.</p>
+                        <textarea style="display: none; width: 97%; margin-left: 6px;margin-bottom: 6px; height: 200px;" id="game_description_addtext"></textarea>
+                    </div>
+                    <img style="float: left; clear:right; width: 33%; widows: inherit;" id="game_image">
+                    <br>
+                    <div class="comments" id="comment_template">
+                        <h3>Comment by: Username</h3>
+                        <p style="float: left; clear: both; white-space: pre;">text</p>
+                    </div>
+                    <div class="comments" id="review_template">
+                        <h3>Review by: Username</h3>
+                        <h3>xx/10</h3>
+                        <p style="float: left; clear: none; white-space: pre;">text</p>
+                        <img style="float: right; clear: both; width: 100%;">
+                        <button class="button_left">show comments</button>
+                        <button class="button_right">add comment</button>
+                        <textarea class="comment_text_area"></textarea>
+                        <button style="display: none; width: 96%;">submit comment</button>
+                    </div>
+                    <div id="game_reviews">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="container" style="border: none; float: right; width: 78%; display: none; overflow: hidden; height: 85vh;" id="collection_content_frame">
+                <h1 id="usernameCollection">Game Collection</h1>
+                <div id="gamebox" class="wrapper" style="height: 90%;">
+                    <div>
+                        <h2>Example</h2>
+                        <p>Publisher</p>
+                        <p>Action, Adventure</p>
+                        <h3> 5/10</h3>
+                        <button>To Game Page</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow: hidden; height: 85vh; float: left;" id="game_adding_frame">
+                <h1>Game Adding</h1>
+                <p>You can search for a game with the bar below. Once you have rated a game it is added to your collection.</p>
+                <p>Enter the Name of the Game you wish to add</p>
+                <div class="box">
+                    <div class="column" style="float: left;">
+                        <form autocomplete="off" action="?" style="margin: 1cm;">
+
+                            <div class="autocomplete" style="width:300px;">
+                                <input id="myInput" type="text" name="myGame" placeholder="Game Name">
+                            </div>
+
+                            <input type="submit" style="visibility: hidden;">
+
+                        </form>
+                    </div>
+                    <div class="column" style="float: left;">
+                        <p></p>
+                        <button id="enterGame">Search</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow-y: auto; height: 100%; float: left;" id="review_adding_frame">
+                <h1 id="review_header">Review Adding</h1>
+                <div style="margin-left: 10px;">
+                    <p id="review_game_name">Game name</p>
+                    <p>Please write your review here:</p>
+                    <textarea id="review_text"></textarea>
+                    <p>Please write your rating here:</p>
+                    <textarea id="review_rating"></textarea>
+                    <p>note: rating must be between 0 and 10, Rating and Review must be submitted seperately.</p>
+                    <button id="review_back">Back</button>
+                    <button id="review_submit">Submit Review</button>
+                    <button id="review_submitR">Submit Rating</button>
+                    <div style="display: none; clear: both; width: 350px;" id="review_alert">
+                        <p style="clear: both;">Do you really want to go back? </p>
+                        <p style="clear: both;">All changes will be lost!</p>
+                        <button style="float: left; clear: left;" id="review_yes">Yes, go Back</button>
+                        <button style="float: left; clear: right;" id="review_no">No, stay here</button>
+                    </div>
+                    <div style="clear: both;" id="uploadImage">
+                        <input name="inputFile" type="file" id="inputImg">
+                        <img src="" alt="Image Preview should appear here" class="imgPreview">
+                        <div class="previewContainer" id="imgPreviewDiv">
+                            <canvas class="previewCanvas" id="previewCanvas">
+                                <span class="imgPreview_defaultText">Bildvorschau</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="login">
+        <h1>My Game Collection</h1>
+        <div id="login_window">
+            <div id="sign_in_options">
+                <button id="login_create_account">Create User Account</button>
+                <button id="login_existing_account">Existing Account</button>
+            </div>
+
+            <div class="column">
+                <div id="login_create_user_frame" style="display: none;">
+                    <p>Please Enter Username</p>
+                    <textarea id="t1"></textarea>
+                    <p>Please Enter Password</p>
+                    <textarea id="t2"></textarea>
+                    <p>Please Repeat Password</p>
+                    <textarea id="t3"></textarea>
+                    <br>
+                    <button id="login_create_user_button">Create Account</button>
+                </div>
+                <div id="login_login_frame">
+                    <p>Please Enter Username</p>
+                    <textarea id="t4"></textarea>
+                    <p>Please Enter Password</p>
+                    <textarea id="t5"></textarea>
+                    <br>
+                    <button id="login_login_button">Log In Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script type="module" src="oqoobo.github.io/master/resources/js/index.js"></script>
+
+
+
+</body>
+
+
+
+</html>
+
+<!--
+
+
+
+            <div style="border: none; float: right;height: 5000px; width: 80%;" id="content_frame">
+                <h1>Game Collection</h1>
+                <div style="border:none; height:inherit; widows: inherit;" >Recent Activity</div>
+                <br>
+                <div style="border:none; height:inherit; widows: inherit;" > Recommended</div> 
+                <br>
+                <div style="border:none; height:inherit; widows: inherit;" > lastReview</div>
+            </div>
+
+            <div style="border: none; float: right;height: 5000px; width: 80%;" id="content_frame">
+                <h1>Game Adding</h1>
+                <div style="border:none; height:inherit; widows: inherit;" >Recent Activity</div>
+                <br>
+                <div style="border:none; height:inherit; widows: inherit;" > Recommended</div> 
+                <br>
+                <div style="border:none; height:inherit; widows: inherit;" > lastReview</div>
+
+
+-->
