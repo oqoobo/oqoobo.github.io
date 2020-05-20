@@ -534,7 +534,7 @@ function gamePage(gamePageGameName, gamePageUserID) {
     // Update Game Info start ----------------------------------------------------------------------------------------------
     gameImageDisplay.src = "";
     if (gamePagePicture) {
-      if (!(gamePagePicture.includes("http://127."))) {
+      if (!(gamePagePicture.includes("https://oqoobo"))) {
         gameImageDisplay.src = gamePagePicture;
       }
     }
@@ -609,9 +609,9 @@ function gamePage(gamePageGameName, gamePageUserID) {
         //Picture  
         if (!(element[6] === "") && element[6]) {
 
-          //Note: When a Comment contains no Picture, gamePageComments[][6] contains http://127.0.0.1:5500/app/. Setting the img.src to this URL would result in a "Broken Picture"
+          //Note: When a Comment contains no Picture, gamePageComments[][6] contains "https://oqoobo". Setting the img.src to this URL would result in a "Broken Picture"
           //This is a workaround to avoid such broken pictures
-          if (!(element[6].includes("http://127."))) {
+          if (!(element[6].includes("https://oqoobo"))) {
             reviewContent[7].src = element[6];
           }
         }
