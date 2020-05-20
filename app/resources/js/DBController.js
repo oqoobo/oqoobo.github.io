@@ -613,6 +613,8 @@ function gamePage(gamePageGameName, gamePageUserID) {
           //This is a workaround to avoid such broken pictures
           if (!(element[6].includes("https://oqoobo"))) {
             reviewContent[7].src = element[6];
+          }else{
+            reviewContent[7].style.display = "none";
           }
         }
 
