@@ -80,7 +80,7 @@ function refreshGameListeners(gameName) {
         userCname = username,
         ratingNum = 0;
 
-      if (img.img.src && !(img.img.src.includes("http://127."))) {
+      if (img.img.src && !(img.img.src.includes("https://oqoobo"))) {
         imgURL = img.img.src;
       }
 
