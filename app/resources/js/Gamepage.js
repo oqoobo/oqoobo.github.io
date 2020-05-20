@@ -3,7 +3,7 @@
 
 import { getCollection, loadGamePage, makeComments,
     setRating, changeDescription} from "./DBController.js";
-  import imageUpload from "./images.js";
+  import imageUpload from "./Images.js";
 import { loadFrames } from "./listener.js";
 
 let username = null, 
