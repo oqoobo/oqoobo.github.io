@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <p id="username" style="display: none;"></p>
     <div id="main_body" style="display: none;">
         <h1>My Game Collection</h1>
         <div class=box>
@@ -23,31 +24,38 @@
 
         <div style="overflow-x: hidden; min-height: 100%;">
 
-            <div class="container" style="float:left; width: 22%; overflow: hidden;">
+            <div class="container" style="float:left; width: 22%; overflow: hidden; max-height: 88vh;">
                 <h1>Friends List</h1>
-                <div class="box" id="friendlist" style="overflow: auto">
+                <div class="box" id="friendlist" style="overflow: scroll; max-height: 80vh">
                 </div>
             </div>
 
-            <div class="container" style="border: none; float: right; width: 78%; overflow: hidden; height: 85vh; display: none;" id="home_content_frame">
+            <div class="container" style="border: none; float: right; width: 78%; overflow: hidden; height: 88vh; display: none;" id="home_content_frame">
                 <h1> Home</h1>
-                <div style="overflow-y: scroll; overflow-block: block;">
-                    <div style="border:none; height:inherit; widows: inherit;">Recent Activity</div>
-                    <br>
-                    <div style="border:none; height:inherit; widows: inherit;"> Recommended</div>
-                    <br>
-                    <div style="border:none; height:inherit; widows: inherit;"> lastReview</div>
+                <div class="container" style="overflow-y: scroll; height: 85%; ">
+                    <h2 style="margin-left: 10px;">Friend's Recent Activity</h2>
+                    <div class="wrapper" style="height: fit-content; margin: 10px;" id="home_recent_activity">
+                    </div>
+                    <div class="wrapper" style=" margin: 10px; height: 80vh;">
+                        <div style="width: 50vh; margin: 10px; float: left;" id="home_last_activity">
+                            <h2>Your Last Activity</h3>
+                        </div>
+                        <div style="width: 50vh; margin: 10px; float: right;" id="home_recommend">
+                            <h2>Recommendation</h3>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow: hidden; height: 85vh;" id="activity_content_frame">
+            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow: hidden; height: 88vh;" id="activity_content_frame">
                 <h1>Activity</h1>
                 <div class="box" id="activity_display" style="overflow-y: scroll; height: 90%;"></div>
             </div>
 
-            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow: hidden; height: 100%;" id="game_content_frame">
+            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow: hidden; height: 88vh;" id="game_content_frame">
                 <h1 id="game_header">Game name did not load</h1>
-                <div id="gamedisplay" style="overflow-y: scroll;min-height: 100%; height: 100%; max-height: 800px;">
+                <div id="gamedisplay" style="overflow-y: scroll;min-height: 100%; height: 85%; max-height: 90%;">
                     <div style="float: left; clear: left;" id="game_info">
                         <h2 id="game_name">Game Name</h2>
                         <p style="float: left; clear: left; margin-left: 10px;">Publisher</p>
@@ -63,7 +71,13 @@
                         <p style="display: none;" id="game_description_alert">Description has been added.</p>
                         <textarea style="display: none; width: 97%; margin-left: 6px;margin-bottom: 6px; height: 200px;" id="game_description_addtext"></textarea>
                     </div>
-                    <img style="float: left; clear:right; width: 33%; widows: inherit;" id="game_image">
+
+                    <div>
+                        <p>Preview Image: </p>
+                        <img style="float: left; clear:right; width: 33%; widows: inherit;" id="game_image">
+                    </div>
+
+                    
                     <br>
                     <div class="comments" id="comment_template">
                         <h3>Comment by: Username</h3>
@@ -87,7 +101,7 @@
 
             </div>
 
-            <div class="container" style="border: none; float: right; width: 78%; display: none; overflow: hidden; height: 85vh;" id="collection_content_frame">
+            <div class="container" style="border: none; float: right; width: 78%; display: none; overflow: hidden; height: 88vh;" id="collection_content_frame">
                 <h1 id="usernameCollection">Game Collection</h1>
                 <div id="gamebox" class="wrapper" style="height: 90%;">
                     <div>
@@ -101,42 +115,55 @@
                 </div>
             </div>
 
-            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow: hidden; height: 85vh; float: left;" id="game_adding_frame">
+            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow: hidden; height: 88vh; float: left;" id="game_adding_frame">
                 <h1>Game Adding</h1>
-                <p>You can search for a game with the bar below. Once you have rated a game it is added to your collection.</p>
-                <p>Enter the Name of the Game you wish to add</p>
-                <div class="box">
-                    <div class="column" style="float: left;">
-                        <form autocomplete="off" action="?" style="margin: 1cm;">
+                <div style="overflow-y: scroll; height: 100%;">
+                    <p>You can search for a game with the bar below. Once you have rated a game it is added to your collection.</p>
+                    <p>Enter the Name of the Game you wish to add</p>
+                    <div class="box">
+                        <div class="column" style="float: left;">
+                            <form autocomplete="off" action="?" style="margin: 1cm;">
 
-                            <div class="autocomplete" style="width:300px;">
-                                <input id="myInput" type="text" name="myGame" placeholder="Game Name">
-                            </div>
+                                <div class="autocomplete" style="width:300px;">
+                                    <input id="myInput" type="text" name="myGame" placeholder="Game Name">
+                                </div>
 
-                            <input type="submit" style="visibility: hidden;">
+                                <input type="submit" style="visibility: hidden;">
 
-                        </form>
-                    </div>
-                    <div class="column" style="float: left;">
-                        <p></p>
-                        <button id="enterGame">Search</button>
+                            </form>
+                        </div>
+                        <div class="column" style="float: left;">
+                            <p></p>
+                            <button id="enterGame">Search</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
 
-            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow-y: auto; height: 100%; float: left;" id="review_adding_frame">
+            <div class="container" style="border: none; float: right; width: 78%; display: none;  overflow: hidden; height: 100%; float: left;" id="review_adding_frame">
                 <h1 id="review_header">Review Adding</h1>
                 <div style="margin-left: 10px;">
                     <p id="review_game_name">Game name</p>
                     <p>Please write your review here:</p>
                     <textarea id="review_text"></textarea>
-                    <p>Please write your rating here:</p>
-                    <textarea id="review_rating"></textarea>
-                    <p>note: rating must be between 0 and 10, Rating and Review must be submitted seperately.</p>
+                    <p>Note: To add a Game to your Collection, you have to submit a review!</p>
+                    <div id="rating_buttons">
+                        <p style="clear: left;">1</p>
+                        <input id="rating1" type="radio" name="rating" value="1">
+                        <input id="rating2" type="radio" name="rating" value="2">
+                        <input id="rating3" type="radio" name="rating" value="3">
+                        <input id="rating4" type="radio" name="rating" value="4">
+                        <input id="rating5" type="radio" name="rating" value="5">
+                        <input id="rating6" type="radio" name="rating" value="6">
+                        <input id="rating7" type="radio" name="rating" value="7">
+                        <input id="rating8" type="radio" name="rating" value="8">
+                        <input id="rating9" type="radio" name="rating" value="9">
+                        <input id="rating10" type="radio" name="rating" value="10">
+                        <p style="clear: right;">10</p>
+                    </div>
                     <button id="review_back">Back</button>
                     <button id="review_submit">Submit Review</button>
-                    <button id="review_submitR">Submit Rating</button>
                     <div style="display: none; clear: both; width: 350px;" id="review_alert">
                         <p style="clear: both;">Do you really want to go back? </p>
                         <p style="clear: both;">All changes will be lost!</p>
@@ -196,7 +223,10 @@
 
     <script type="module" src="./resources/js/index.js"></script>
 
+
+
 </body>
+
 
 
 </html>
