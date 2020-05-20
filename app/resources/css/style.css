@@ -1,0 +1,371 @@
+html {
+    margin: 0;
+    height: 100%;
+}
+
+#main_body {
+  height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background:#E6F4F1;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: black;
+    overflow: hidden;
+}
+
+.box {
+    align-items: center ;
+    text-align: center;
+    
+}
+
+button 
+{
+    background-color: #7E90BC;
+    color:#FFF;
+    font-size: x-large;
+    border-style: solid;
+    border-radius: 5px 15px 5px 15px;
+    border-width: 10px 5px 10px 5px;
+    border-color:#7E90BC;
+}
+.container {
+    overflow-y: scroll;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+#friendlist{
+    border-style: solid;
+    border-color:#7E90BC;
+    overflow-y: scroll;
+    background-color: #A5ABBD;
+}   
+
+#friendlist::-webkit-scrollbar {
+    display: none;
+}
+
+#friendlist button {
+    background-color: #F4F9FF;
+    border-color: #F4F9FF;
+    width: 98%;
+    text-align: left;
+    margin: 1mm;
+    color: black;
+}
+
+h1 {
+    width: 100vw;
+    margin: 0;
+    padding: 1vw;
+    background-color:#414756;
+    border-style: solid;
+    border-color: #414756;
+    color:#FFF;
+}
+
+#gamebox{
+  height: 745px;
+  overflow-y: scroll;
+}
+
+#gamebox div {
+  width: 20%;
+  float: left;
+  margin: 10px;
+  border-style: solid;
+  border-color: #414756;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #ADD5F7;
+}
+
+#gamebox h2
+{
+  margin-top: 0px;
+  text-align: center;
+  background-color: #0D47A1;
+  color: #FFF;
+  border-radius: 2px 2px 10px 10px;  
+}
+
+#gamebox p{
+  text-align: left;
+  margin-left: 10px;
+  margin-top: none;
+  margin-bottom: none;
+}
+
+ #gamebox button{
+   width: 100%;
+   background-color: #1B76FF;
+   border-color: #1B76FF;
+   border-radius: 10px 10px 2px 2px;
+   border-width: 5px 10px 5px 10px;
+ }
+
+
+
+
+#game_adding_frame p{
+    margin: 1cm;
+}
+
+.previewCanvas{
+    width: 300px;
+    height: 200px;
+}
+
+.previewContainer{
+    width: 310px;
+    min-height: 200px;
+    border: 2px solid #cccccc;
+    margin: 0px;
+    padding: 0px;
+
+    /*for default text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #cccccc;
+}
+
+.imgPreview{
+    display: none;
+    max-width: 100%;
+}
+
+#login_window{
+    text-align: center;
+    margin-top: 5%;
+}
+
+textarea{
+    resize: none;
+    border-color: #2a475e;
+    width: 250px;
+    height: 30px;
+}
+
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+    
+  }
+  input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+    
+  }
+  input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+    border-style: solid;
+    border-color: #414756;    
+
+  }
+  input[type=submit] {
+    background-color: #7E90BC;
+    color: #fff;
+    position: absolute;
+
+  }
+
+  button #entergame{
+    background-color: #7E90BC;
+    color: #fff;
+    position: relative;    
+  }
+
+  #activity_display{
+    width: 100%;
+    max-width: 100%;
+    overflow-y: scroll;
+
+    height: 100%;
+    max-height: 100%;
+  }
+
+  #activity_display div{
+    width: 95%;
+    border-style: solid;
+    float: left;
+  margin: 10px;
+  border-style: solid;
+  border-color: #414756;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #e9ccb1;
+  text-align: left;
+  
+    
+  }
+
+  #activity_display p{
+    margin: 10px;
+  }
+
+  #activity_display button {
+    text-align: right;
+    float: right;
+    border-radius: 5px 0px 0px 5px;
+  }
+
+  #activity_display h2
+  {
+    margin: 10px;
+  }
+
+  #activity_display h3{
+    text-align: center;
+    margin: 10px;
+  }
+
+  .autocomplete-items {
+    display: block;
+    position: relative;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+    
+  }
+  .autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+  }
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: #7E90BC !important;
+    color: #ffffff;
+  }
+  
+  #gamedisplay h2
+  {
+    margin-top: 0px;
+    text-align: center;
+    background-color: #0D47A1;
+    color: #FFF;
+    border-radius: 2px 2px 10px 10px;  
+  }
+  
+  #gamedisplay p{
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: none;
+    margin-bottom: none;
+  }
+
+  #gamedisplay button{
+     width: 98%;
+     border-color: black;
+     border-style: solid;
+     background-color: #e9ccb1;
+     color: black;
+     border-width: 2px 2px 2px 2px;
+     border-radius: 0px;
+     margin-top: 5px;
+     margin-left: 0px;
+     margin-right: 0px;
+  }
+
+  #game_reviews{
+    border-style: none;
+    background-color: #ffffff;
+  }
+
+  #comment_template{
+    display: none;
+    width: 95%;
+    margin-left: 20px;
+    float: left;
+    margin: 10px;
+    border-style: solid;
+    border-color: #414756;
+    background-color: #F5f5dc;  
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+    clear: both;
+  }
+
+  #game_info{
+    width: 60%;
+    float: left;
+    margin: 10px;
+    border-style: solid;
+    border-color: #414756;
+    background-color: #F5f5dc;  
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+    clear: both;
+  }
+
+  #review_template{
+    display: none;
+    width: 60%;
+    float: left;
+    margin: 10px;
+    border-style: solid;
+    border-color: #414756;
+    background-color: #F5f5dc;  
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+    clear: both;
+  }
+
+  #review_template p{
+    clear: both;
+  }
+
+  #review_template button {
+    width: 46%;
+    float: left;
+    margin: 2%;
+    margin-left: 2%;
+  }
+
+  .comment_text_area{
+    display: none;
+    height: 200px;
+    width: 95%;
+    margin: 2%;
+  }
+
+  .comments{
+    display: none;
+    width: 95%;
+    margin-left: 20px;
+    float: left;
+    margin: 10px;
+    border-style: solid;
+    border-color: #414756;
+    background-color: #F5f5dc;  
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+    clear: both;
+  }
