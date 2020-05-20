@@ -17,15 +17,15 @@ let gameCommentsCount = 10;
 Der Teil Verbindet zu Firebase:
 */
 var firebaseConfig = {
-    apiKey: "AIzaSyDBCpG6KlDSsqEnHzy34vvZCHHazDvUo1E",
-    authDomain: "spielesammlung-e52d2.firebaseapp.com",
-    databaseURL: "https://spielesammlung-e52d2.firebaseio.com",
-    projectId: "spielesammlung-e52d2",
-    storageBucket: "spielesammlung-e52d2.appspot.com",
-    messagingSenderId: "706163355277",
-    appId: "1:706163355277:web:cf07aba4783db7e64ebcc4"
-  },
-  ref; //, userName = "carl";
+  apiKey: "AIzaSyDgkB19MvYOjB9xTzdjkU2T_PWVyTz5svk",
+  authDomain: "gamecollection-dcadc.firebaseapp.com",
+  databaseURL: "https://gamecollection-dcadc.firebaseio.com/",
+  projectId: "gamecollection-dcadc",
+  storageBucket: "gamecollection-dcadc.appspot.com",
+  messagingSenderId: "922435945695",
+  appId: "1:922435945695:web:78e1537e93640e5b0fd56a",
+  measurementId: "G-45SWEY56SY"
+},ref;
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 ref = firebase.database().ref();
